@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const namesRouter = Router();
+const namesController = require("../controllers/namesController")
 
 namesRouter.get('/', (req, res) => res.send('name route!'));
 
