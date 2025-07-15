@@ -27,9 +27,28 @@ async function insertCategory(name) {
 	await pool.query('INSERT INTO categories (name) VALUES ($1)', [name]);
 }
 
+async function insertName(name, meaning, categoryIds) {
+	const {rows} = await pool.query(
+		'INSERT INTO names (name, meaning) VALUES ($1, $2) RETURNING *',
+		[name, meaning]
+	);
+	const insertedId = rows[0].id;
+
+	if (categoryIds.length > 0) {
+		const values = categoryIds.map((_, i) => `($1, $${i + 2})`).join(', ');
+		const params = [insertedId, ...categoryIds.map((c) => parseInt(c))];
+
+		await pool.query(
+			`INSERT INTO name_categories (name_id, category_id) VALUES ${values}`,
+			params
+		);
+	}
+}
+
 module.exports = {
 	getAllCategories,
 	getAllNames,
 	getAllNameByCategory,
-	insertCategory
+	insertCategory,
+	insertName
 };
