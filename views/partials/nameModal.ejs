@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="/categoryModal.css">
+
+<button class="modal-toggle-btn" onclick="document.getElementById('name-modal').style.display='flex'">
+  Add name
+</button>
+
+<div id="name-modal" class="modal" aria-hidden="true">
+  <div class="modal-box">
+    <h3>Add New name</h3>
+  
+    <form class="modal-form" action="/names" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="John" />
+
+        <label for="meaning">Meaning</label>
+        <input type="text" id="meaning" name="meaning" required placeholder="God is gracious" />
+
+        <label for="choices-multiple">Category</label>
+        <select id="choices-multiple" name="selectedCategories[]" multiple required>
+            <% categories.forEach(category => { %>
+           <option value="<%= category.id %>"><%= category.name %></option>
+             <% }); %>
+        </select>
+
+    <div class="btns">
+        <button class="modal-close-btn" onclick="document.getElementById('name-modal').style.display='none'">CLOSE</button>
+        <button  class="submit-btn" type="submit">ADD</button>
+    </div>
+        
+    </form>
+  </div>
+</div>

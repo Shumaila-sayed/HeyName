@@ -13,8 +13,13 @@ const getCategories = async (req, res) => {
 const getNamesByCategory = async (req, res) => {
 	const id = parseInt(req.params.id);
 	try {
-        const [names, category_name] = await db.getAllNameByCategory(id);
-		res.render('names', { names: names, category_name: category_name });
+		const [names, category_name] = await db.getAllNameByCategory(id);
+		const categories = await db.getAllCategories();
+		res.render('names', {
+			names: names,
+			category_name: category_name,
+			categories: categories,
+		});
 	} catch (error) {
 		console.log(`error fetching names: `, error);
 		res.status(500).send('error fetching names');
