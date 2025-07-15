@@ -21,7 +21,20 @@ const getNamesByCategory = async (req, res) => {
 	}
 };
 
-const newCategoryPost = () => {};
+const newCategoryPost = async (req, res) => {
+	try {
+		const { category_name } = req.body;
+		if (!category_name) {
+			res.status(404).send('Category Name Not Found');
+			return;
+		}
+		await db.insertCategory(category_name);
+		res.redirect('/categories');
+	} catch (error) {
+		console.log('Error creating category: ', error);
+		res.status(500).send('Internal Server Error');		
+	}
+};
 
 const updateCategory = () => {};
 

@@ -10,9 +10,14 @@
 	</head>
 	<body>
 		<h1><%= category_name %> Names</h1>
-		<div>
+		<% if(names.length === 0){ %>
+			<p>No Names Added Yet...</p>
+		<% } else { %>
+			<div>
 			<% names.forEach(name => { %> <%- include('partials/name', {name: name})
 			%> <%}) %>
 		</div>
+		<% } %>
+		
 	</body>
 </html>

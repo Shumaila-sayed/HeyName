@@ -23,8 +23,13 @@ async function getAllNameByCategory(id) {
 	return [rows, category_name];
 }
 
+async function insertCategory(name) {
+	await pool.query('INSERT INTO categories (name) VALUES ($1)', [name]);
+}
+
 module.exports = {
 	getAllCategories,
 	getAllNames,
 	getAllNameByCategory,
+	insertCategory
 };
