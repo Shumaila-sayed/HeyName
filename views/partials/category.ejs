@@ -1,3 +1,14 @@
 <div>
-    <p><a href="/categories/<%= category.id %>/names"><%= category.name %></a></p>
+	<div>
+		<p>
+			<a href="/categories/<%= category.id %>/names"><%= category.name %></a>
+		</p>
+	</div>
+	<div>
+		<button onclick="document.getElementById('edit-category-modal-2').style.display='flex'">
+  			Edit
+		</button>
+		<%- include("./categoryModal", {btn1: "Edit", title: "Edit Category", action: "/categories/" + category.id + "?_method=PUT" , method: "POST", cta: "UPDATE",  modalId: "edit-category-modal-2", category_name: category.name}) %>
+        <button>Delete</button>
+	</div>
 </div>

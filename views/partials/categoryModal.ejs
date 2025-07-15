@@ -1,22 +1,26 @@
 <link rel="stylesheet" href="/categoryModal.css">
 
-<button class="modal-toggle-btn" onclick="document.getElementById('category-modal').style.display='flex'">
-  Add Category
-</button>
-
-<div id="category-modal" class="modal" aria-hidden="true">
+<div id="<%= modalId %>" class="modal">
   <div class="modal-box">
-    <h3>Create New Category</h3>
-  
-    <form class="modal-form" action="/categories" method="POST">
-        <label for="category_name">Name</label>
-        <input type="text" id="category_name" name="category_name" required />
-
-    <div class="btns">
-        <button class="modal-close-btn" onclick="document.getElementById('category-modal').style.display='none'">CLOSE</button>
-        <button class="submit-btn" type="submit">CREATE</button>
-    </div>
-        
+    <h3><%= title %></h3>
+    <form class="modal-form" action="<%= action %>" method="<%= method %>">
+      <label for="category_name_<%= modalId %>">Name</label>
+      <input
+        type="text"
+        id="category_name_<%= modalId %>"
+        name="category_name"
+        value="<%=  typeof category_name !== 'undefined' ? category_name : '' %>"
+        required
+      />
+      <div class="btns">
+        <button
+          class="modal-close-btn"
+          type="button"
+          onclick="document.getElementById('<%= modalId %>').style.display='none'">
+          CLOSE
+        </button>
+        <button class="submit-btn" type="submit"><%= cta %></button>
+      </div>
     </form>
   </div>
 </div>
