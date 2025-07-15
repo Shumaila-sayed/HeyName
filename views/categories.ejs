@@ -9,7 +9,11 @@
 		<title>Categories</title>
 	</head>
 	<body>
-		<h1>Explore Categories</h1>
+        <div>
+            <h1>Explore Categories</h1>
+            <%- include("partials/categoryModal") %>
+        </div>
+        
 		<div>
 			<% categories.forEach(category => { %> <%- include('partials/category',
 			{category: category}) %> <%}) %>
