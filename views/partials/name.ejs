@@ -1,4 +1,10 @@
 <div>
-    <p><%= name.name %></p>
-    <p>meaning- <%= name.meaning.toLowerCase() %></p>
+    <div>
+        <p><%= name.name %></p>
+        <p>meaning- <%= name.meaning.toLowerCase() %></p>
+    </div>
+    <div>
+        <%- include("./editNameModal", {name: name, categories: categories}) %>
+        <button>Delete</button>
+    </div>
 </div>

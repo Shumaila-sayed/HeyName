@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="/categoryModal.css">
+
+<button class="modal-toggle-btn" onclick="openModal('name-modal-<%= name.id %>')">
+  Edit
+</button>
+
+<div id='name-modal-<%= name.id %>' class="modal" aria-hidden="true">
+  <div class="modal-box">
+    <h3>Edit name</h3>
+  
+    <form class="modal-form" action="/names/<%= name.id %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT" />
+        <label for="name-<%= name.id %>">Name</label>
+        <input type="text" id="name-<%= name.id %>" name="name" required value="<%= name.name %>" />
+
+        <label for="meaning-<%= name.id %>">Meaning</label>
+        <input type="text" id="meaning-<%= name.id %>" name="meaning" required value="<%= name.meaning %>" />
+
+        <label for="choices-multiple">Category</label>
+        <select class="choices-multiple" name="selectedCategories[]" multiple required>
+            <% categories.forEach(category => { %>
+           <option value="<%= category.id %>"><%= category.name %></option>
+             <% }); %>
+        </select>
+
+    <div class="btns">
+        <button class="modal-close-btn" type="button" onclick="closeModal('name-modal-<%= name.id %>')">CLOSE</button>
+        <button  class="submit-btn" type="submit">ADD</button>
+    </div>
+        
+    </form>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.choices-multiple').forEach(select => {
+      new Choices(select, {
+        removeItemButton: true,
+        placeholderValue: 'Select categories',
+        searchEnabled: true
+      });
+    });
+  });
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+
+    const input = modal.querySelector('input[type="text"]');
+    input.focus();
+    const length = input.value.length;
+    input.setSelectionRange(length, length);
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+
+    if (document.activeElement) document.activeElement.blur();
+
+    modal.setAttribute('aria-hidden', 'true');
+    modal.style.display = 'none';
+  }
+</script>
