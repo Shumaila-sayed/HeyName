@@ -49,11 +49,28 @@ async function editCategory(id, name) {
 	await pool.query('UPDATE categories SET name = ($1) WHERE id = ($2)', [name, id])
 }
 
+async function editName(id, name, meaning, categoryIds) {
+	await pool.query('UPDATE names SET name = ($1), meaning = ($2) WHERE id = ($3)', [name, meaning, id]);
+
+	await pool.query('DELETE FROM name_categories WHERE name_id = ($1)', [id]);
+
+	if (categoryIds.length > 0) {
+		const values = categoryIds.map((_, i) => `($1, $${i + 2})`).join(', ');
+		const params = [id, ...categoryIds.map(Number)];
+
+		await pool.query(
+			`INSERT INTO name_categories (name_id, category_id) VALUES ${values}`,
+			params
+		);
+	}
+
+}
 module.exports = {
 	getAllCategories,
 	getAllNames,
 	getAllNameByCategory,
 	insertCategory,
 	insertName,
-	editCategory
+	editCategory,
+	editName
 };
