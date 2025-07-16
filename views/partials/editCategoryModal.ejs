@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/categoryModal.css">
+
+<button class="modal-toggle-btn" onclick="openModal('category-modal-<%= category.id %>')">
+  Edit
+</button>
+
+<div id="category-modal-<%= category.id %>" class="modal" aria-hidden="true" style="display: none;">
+  <div class="modal-box">
+    <h3>Edit Category</h3>
+  
+    <form class="modal-form" action="/categories/<%= category.id %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT" />
+        <label for="category_name-<%= category.id %>">Name</label>
+        <input type="text" id="category_name-<%= category.id %>" name="editCategory_name" value="<%= category.name %>" required />
+
+    <div class="btns">
+        <button class="modal-close-btn" type="button" onclick="closeModal('category-modal-<%= category.id %>')">CLOSE</button>
+        <button class="submit-btn" type="submit">UPDATE</button>
+    </div>
+        
+    </form>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+
+    const input = modal.querySelector('input[type="text"]');
+    input.focus();
+    const length = input.value.length;
+    input.setSelectionRange(length, length);
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+
+    if (document.activeElement) document.activeElement.blur();
+
+    modal.setAttribute('aria-hidden', 'true');
+    modal.style.display = 'none';
+  }
+</script>

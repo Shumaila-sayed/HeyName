@@ -41,7 +41,18 @@ const newCategoryPost = async (req, res) => {
 	}
 };
 
-const updateCategory = () => {};
+const updateCategory = async (req, res) => {
+	try {
+		const id = parseInt(req.params.id);
+		const { editCategory_name } = req.body;
+		
+		await db.editCategory(id, editCategory_name);
+		res.redirect('/categories');
+	} catch (error) {
+		console.log('Error updating category: ', error);
+		res.status(500).send('Internal Server Error');	
+	}
+};
 
 const deleteCategory = () => {};
 

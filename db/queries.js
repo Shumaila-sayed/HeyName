@@ -45,10 +45,15 @@ async function insertName(name, meaning, categoryIds) {
 	}
 }
 
+async function editCategory(id, name) {
+	await pool.query('UPDATE categories SET name = ($1) WHERE id = ($2)', [name, id])
+}
+
 module.exports = {
 	getAllCategories,
 	getAllNames,
 	getAllNameByCategory,
 	insertCategory,
-	insertName
+	insertName,
+	editCategory
 };

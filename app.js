@@ -5,6 +5,7 @@ const path = require('node:path');
 const categoriesRouter = require('./routes/categoriesRouter');
 const namesRouter = require('./routes/namesRouter');
 const indexRouter = require('./routes/indexRouter');
+const methodOverride = require('method-override');
 
 // for html
 app.set('views', path.join(__dirname, 'views'));
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs');
 
 // for form
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 // for css - static assets
 const assetsPath = path.join(__dirname, 'public');

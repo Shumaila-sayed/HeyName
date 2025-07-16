@@ -11,20 +11,13 @@
 	<body>
 		<div>
 			<h1>Explore Categories</h1>
-			<button
-				class="modal-toggle-btn"
-				onclick="document.getElementById('add-category-modal').style.display='flex'"
-			>
-				Add Category
-			</button>
-			<%- include("partials/categoryModal", {btn1: "Add Category", title:
-			"Create New Category", action: "/categories", method: "POST", cta:
-			"CREATE", modalId: "add-category-modal"}) %>
+			<%- include("partials/categoryModal") %>
 		</div>
 
 		<div>
-			<% categories.forEach(category => { %> <%- include('partials/category',
-			{category: category}) %> <%}) %>
+			<% categories.forEach(category => { %> 
+				<%- include('partials/category', {category: category}) %>
+			 <%}) %>
 		</div>
 	</body>
 </html>
