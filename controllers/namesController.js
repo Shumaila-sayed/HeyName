@@ -24,7 +24,7 @@ const newNamePost = async (req, res) => {
 		res.status(500).send('error adding name');
 	}	
 };
-
+ 
 const updateName = async (req, res) => {
 	try {
 		const id = parseInt(req.params.id);
