@@ -9,7 +9,7 @@ categoriesRouter.get('/:id/names', categoriesController.getNamesByCategory);
 
 categoriesRouter.post('/', categoriesController.newCategoryPost);
 categoriesRouter.put('/:id', categoriesController.updateCategory);
-categoriesRouter.post('/:id', categoriesController.deleteCategory);
+categoriesRouter.delete('/:id', categoriesController.deleteCategory);
 
 
 module.exports = categoriesRouter;

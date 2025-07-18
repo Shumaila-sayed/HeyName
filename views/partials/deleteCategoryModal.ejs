@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="/categoryModal.css">
+
+<button class="modal-toggle-btn" onclick="openModal('deleteCategory-modal-<%= category.id %>')">
+  Delete
+</button>
+
+<div id="deleteCategory-modal-<%= category.id %>" class="modal" aria-hidden="true" style="display: none;">
+  <div class="modal-box">  
+    <h3>Are you sure?</h3>
+    <form class="modal-form" action="/categories/<%= category.id %>?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        
+        <div class="btns">
+        <button class="modal-close-btn" type="button" onclick="closeModal('deleteCategory-modal-<%= category.id %>')">NO</button>
+        <button class="submit-btn" type="submit">YES</button>
+    </div>
+        
+    </form>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (document.activeElement) document.activeElement.blur();
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+   
+  }
+</script>

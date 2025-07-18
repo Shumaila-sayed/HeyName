@@ -54,7 +54,17 @@ const updateCategory = async (req, res) => {
 	}
 };
 
-const deleteCategory = () => {};
+const deleteCategory = async (req, res) => {
+	try {
+		const id = parseInt(req.params.id);
+		await db.deleteCategory(id);
+		res.redirect('/categories');
+	} catch (error) {
+		console.log('Error deleting category: ', error);
+		res.status(500).send('Internal server error');
+		
+	}
+};
 
 module.exports = {
 	getCategories,
