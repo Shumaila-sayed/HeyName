@@ -12,13 +12,13 @@ const getNames = async (req, res) => {
 
 const newNamePost = async (req, res) => {
 	try {
-		const { name, meaning, selectedCategories } = req.body;
+		const {category_id, name, meaning, selectedCategories,  } = req.body;
 		if (!name || !meaning || !selectedCategories) {
 			res.status(404).send('Name, Meaning or Category Not Found');
 			return;
 		}
 		await db.insertName(name, meaning, selectedCategories);
-		res.redirect('/categories');
+		res.redirect(`/categories/${category_id}/names`);
 	} catch (error) {
 		console.log(`error adding name: `, error);
 		res.status(500).send('error adding name');
