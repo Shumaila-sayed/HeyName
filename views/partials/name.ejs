@@ -4,7 +4,7 @@
         <p>meaning- <%= name.meaning.toLowerCase() %></p>
     </div>
     <div>
-        <%- include("./Modals/Name/editNameModal", {name: name, categories: categories}) %>
+        <%- include("./Modals/Name/editNameModal", {name: name, categories: categories, category_id: category_id}) %>
         <%- include("./Modals/Name/deleteNameModal", {name: name, category_id: category_id}) %>
     </div>
 </div>
