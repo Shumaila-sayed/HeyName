@@ -14,7 +14,7 @@
 	<body>
 		<div>
 			<h1><%= category_name %> Names</h1>
-			<%- include("partials/nameModal", {categories: categories}) %>
+			<%- include("partials/Modals/Name/nameModal", {categories: categories, category_id: category_id}) %>
 		</div>
 		
 		<% if(names.length === 0){ %>
