@@ -19,6 +19,7 @@ const getNamesByCategory = async (req, res) => {
 			names: names,
 			category_name: category_name,
 			categories: categories,
+			category_id: id,
 		});
 	} catch (error) {
 		console.log(`error fetching names: `, error);

@@ -21,7 +21,7 @@
 			<p>No Names Added Yet...</p>
 		<% } else { %>
 			<div>
-			<% names.forEach(name => { %> <%- include('partials/name', {name: name, categories: categories})
+			<% names.forEach(name => { %> <%- include('partials/name', {name: name, categories: categories, category_id: category_id})
 			%> <%}) %>
 		</div>
 		<% } %>

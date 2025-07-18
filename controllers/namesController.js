@@ -41,7 +41,17 @@ const updateName = async (req, res) => {
 	}
 };
 
-const deleteName = () => {};
+const deleteName = async (req, res) => {
+	try {
+		const id = parseInt(req.params.id);
+		const { category_id } = req.body;
+		await db.deleteName(id);
+		res.redirect(`/categories/${category_id}/names`);
+	} catch (error) {
+		console.log('Error deleting name: ', error);
+		res.status(500).send('Error deleting name');		
+	}
+};
 
 module.exports = {
 	getNames,

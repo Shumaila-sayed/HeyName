@@ -66,8 +66,11 @@ async function editName(id, name, meaning, categoryIds) {
 }
 
 async function deleteCategory(id) {
-	await pool.query('DELETE FROM name_categories WHERE category_id = $1', [id]);
-	await pool.query('DELETE FROM categories where id = ($1)', [id]);	
+	await pool.query('DELETE FROM categories WHERE id = ($1)', [id]);	
+}
+
+async function deleteName(id) {
+	await pool.query('DELETE FROM names WHERE id = ($1)', [id]);
 }
 
 module.exports = {
@@ -78,5 +81,6 @@ module.exports = {
 	insertName,
 	editCategory,
 	editName,
-	deleteCategory
+	deleteCategory,
+	deleteName
 };
