@@ -1,15 +1,17 @@
+@import url(variables.css);
+
 .modal-toggle-btn {
-  background-color: #1d4ed8;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background-color: var(--pink);
+  color: var(--white);
   font-size: 14px;
-  cursor: pointer;
+  min-width: 10em;
+  min-height: 3.5em;
+  font-weight: bold;
+  letter-spacing: normal;
 }
 
 .modal-toggle-btn:hover {
-  background-color: #1e40af;
+  background-color: var(--lavender-dark);
 }
 
 .modal {
@@ -88,3 +90,9 @@ input {
   background-color: #1e40af;
 }
 
+
+@media  screen and (min-width: 480px) {
+.modal-toggle-btn {
+    min-width: 12em;
+}
+}
