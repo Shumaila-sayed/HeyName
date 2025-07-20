@@ -52,3 +52,12 @@ li > a:focus::after {
 	background-color: var(--dark-blue);
 	width: 100%;
 }
+
+@media  screen and (min-width: 480px) {
+	nav {
+		min-width: 34em;
+	}
+	ul {
+		gap: 6em;
+	}
+}
