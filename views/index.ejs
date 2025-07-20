@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeyName</title>
-</head>
-<body>
-    <%- include("partials/navbar") %>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>HeyName</title>
+		<link
+			rel="stylesheet"
+			href="/index.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="/background.css"
+		/>
+	</head>
+	<body>
+		<div class="grid-bg"></div>
+		<div class="content">
+			<%- include("partials/navbar") %>
+			<section class="hero">
+				<div class="tagline">
+					<span></span>
+					<p>Discover Names from around the world</p>
+				</div>
+				<h1>
+					Explore Names by Categories or Create<br />
+					Your Own <span>Collection</span>.
+				</h1>
+				<button class="hero-btn">
+					<a href="/categories">Explore Categories</a>
+				</button>
+			</section>
+		</div>
+	</body>
 </html>
+<script>
+	const grid = document.querySelector('.grid-bg');
+	const cellSize = 40;
+	const cols = Math.ceil(window.innerWidth / cellSize);
+	const rows = Math.ceil(window.innerHeight / cellSize);
+	const total = cols * rows;
+
+	function getRandomPastel() {
+		const hue = Math.floor(Math.random() * 360);
+		return `hsl(${hue}, 100%, 85%)`; // pastel HSL
+	}
+
+	for (let i = 0; i < total; i++) {
+		const cell = document.createElement('div');
+		cell.classList.add('grid-cell');
+		const color = getRandomPastel();
+		cell.style.setProperty('--hover-color', color);
+		grid.appendChild(cell);
+	}
+</script>
