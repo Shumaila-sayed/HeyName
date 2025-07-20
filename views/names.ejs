@@ -12,6 +12,7 @@
 
 	</head>
 	<body>
+		 <%- include("partials/navbar") %>
 		<div>
 			<h1><%= (category_name) ? category_name : "" %> Names</h1>
 			<%- include("partials/Modals/Name/nameModal", {categories: categories, category_id: category_id}) %>

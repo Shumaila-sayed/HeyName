@@ -1,0 +1,56 @@
+@import url(variables.css);
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+nav {
+	margin: auto;
+	background-color: var(--lavender);
+	border-radius: 2em;
+	max-width: fit-content;
+    font-family: "Cal Sans", sans-serif;
+   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+ul {
+	display: flex;
+	justify-content: center;
+	gap: 1.5em;
+	padding-inline: 1.7em;
+	padding-block: 1em;
+
+}
+
+li {
+	list-style: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: var(--purple);
+    position: relative;
+	outline: none !important;
+	text-transform: uppercase;
+	transition: 0.2s;
+}
+
+a::after {
+	content: "";
+	background-color: var(--black);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2px;
+	width: 0;
+	transition: 0.2s;
+}
+
+a:hover,
+a:focus {
+	color: var(--brown);
+}
+
+a:hover::after,
+a:focus::after {
+	background-color: var(--brown);
+	width: 100%;
+}

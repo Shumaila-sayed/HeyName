@@ -1,7 +1,8 @@
 const { Router } = require('express');
 const indexRouter = Router();
+const indexController = require("../controllers/indexControllers");
 
 
-indexRouter.get('/', (req, res) => res.send('Hello, world!'));
+indexRouter.get('/', indexController.getIndexPage);
 
 module.exports = indexRouter;
