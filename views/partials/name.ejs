@@ -1,9 +1,9 @@
 <div>
-    <div>
+    <div class="name-card">
         <p><%= name.name %></p>
-        <p>meaning- <%= name.meaning.toLowerCase() %></p>
+        <i>meaning- <%= name.meaning.toLowerCase() %></i>
     </div>
-    <div>
+    <div class="action-btn">
         <%- include("./Modals/Name/editNameModal", {name: name, categories: categories, category_id: category_id}) %>
         <%- include("./Modals/Name/deleteNameModal", {name: name, category_id: category_id}) %>
     </div>

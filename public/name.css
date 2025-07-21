@@ -1,0 +1,57 @@
+@import url(variables.css);
+
+.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 0.5em;
+	margin-top: -1em;
+}
+
+.name-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(6em, 1fr));
+	gap: 2em;
+	text-align: center;
+	margin-inline: 1.2em;
+}
+
+.name-card {
+	padding: 1em;
+	transition: box-shadow 500ms;
+	margin-bottom: 1em;
+	background-color: var(--purple);
+	border-radius: 1em;
+}
+
+.name-card > p {
+	font-weight: 800;
+	color: var(--white);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.name-card :last-child {
+	color: var(--lavender);
+}
+
+.name-card:hover {
+	box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+		rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+		rgba(0, 0, 0, 0.09) 0px 32px 16px;
+	scale: 1.1;
+}
+
+.action-btn {
+	display: flex;
+	justify-content: end;
+}
+
+@media screen and (min-width: 480px) {
+	.name-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(22em, 1fr));
+		margin-inline: 5em;
+	}
+	.name-card {
+		padding-block: 3em;
+	}
+}
