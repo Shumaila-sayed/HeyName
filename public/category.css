@@ -1,0 +1,127 @@
+@import url(variables.css);
+
+body {
+	background: #f5f4fa;
+}
+
+.categories {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+	padding: 1em;
+	gap: 0.8em;
+}
+
+.edit-btn,
+.delete-btn {
+	border: none;
+	width: fit-content;
+    cursor: pointer;
+}
+
+.action-btns {
+	padding: 0.2em 0.5em;
+	display: flex;
+	justify-content: end;
+}
+
+.category-card {
+	border-radius: 1em;
+	text-align: center;
+	padding: 2em;
+	 position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.category-card-link {
+  display: block;
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  color: inherit;
+}
+
+.category-card-bg {
+  position: absolute;
+  top: -120px;
+  right: -95px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--purple, #a066e0);
+  z-index: 1;
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover .category-card-bg {
+  transform: scale(10);
+}
+
+.category-card-title {
+  font-size: 1.5em;
+  font-weight: 800;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  z-index: 2;
+  position: relative;
+  color: var(--purple);
+}
+
+.category-card:hover .category-card-title {
+  color: #fff;
+}
+
+.category-card > p > a {
+	text-decoration: none;
+	font-size: 1.5em;
+	color: var(--purple);
+	font-weight: 800;
+	font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+.title {
+	margin-left: 1em;
+	margin-bottom: 1.5em;
+}
+
+.title > button {
+    max-height: 1em;
+}
+
+.color1 .category-card-bg {
+  background-color: #f9b234;
+}
+.color2 .category-card-bg {
+  background-color: #3ecd5e;
+}
+.color3 .category-card-bg {
+  background-color: #e44002;
+}
+.color4 .category-card-bg {
+  background-color: #952aff;
+}
+.color5 .category-card-bg {
+  background-color: #cd3e94;
+}
+.color6 .category-card-bg {
+  background-color: #4c49ea;
+}
+
+
+@media screen and (min-width: 480px) {
+	.title {
+		display: flex;
+		justify-content: space-between;
+		margin-inline: 4.8em;
+        align-items: center;
+	}
+
+	.categories {
+		grid-template-columns: repeat(auto-fill, minmax(22em, 1fr));
+		margin-inline: 4em;
+        gap: 2em;
+	}
+	.category-card {
+		padding: 4em;
+	}
+}

@@ -1,11 +1,19 @@
+<% const colors = ['color1', 'color2', 'color3', 'color4', 'color5', 'color6'];
+%> <% const index = Math.floor(Math.random() * 11) %>
+
 <div>
-	<div>
-		<p>
-			<a href="/categories/<%= category.id %>/names"><%= category.name %></a>
-		</p>
+	<div class="category-card <%= colors[index % colors.length] %>">
+		<a
+			href="/categories/<%= category.id %>/names"
+			class="category-card-link"
+		>
+			<div class="category-card-bg"></div>
+			<p class="category-card-title"><%= category.name %></p>
+		</a>
 	</div>
-	<div>
+	<div class="action-btns">
 		<%- include("./Modals/Category/editCategoryModal", {category: category}) %>
-		<%- include("./Modals/Category/deleteCategoryModal", {category: category}) %>
+		<%- include("./Modals/Category/deleteCategoryModal", {category: category})
+		%>
 	</div>
 </div>
