@@ -56,13 +56,13 @@ async function main() {
 	console.log('seeding...');
 	const client = new Client({
 		connectionString: argv[2],
-		
+		ssl: { rejectUnauthorized: false },
 	});
 
 	await client.connect();
 	await client.query(SQL);
 	await client.end();
-	console.log('✅ Done seeding!');
+	console.log('Done!');
 }
 
 main();
