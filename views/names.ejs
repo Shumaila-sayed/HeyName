@@ -27,7 +27,7 @@
 		</div>
 		
 		<% if(names.length === 0){ %>
-			<p>No Names Added Yet...</p>
+			<p style="text-align: center; font-size: large;">No Names Added Yet...</p>
 		<% } else { %>
 			<div class="name-container">
 			<% names.forEach(name => { %> <%- include('partials/name', {name: name, categories: categories, category_id: category_id})
