@@ -18,10 +18,11 @@
 
 .name-card {
 	padding: 1em;
-	transition: box-shadow 500ms;
+	margin-bottom: 1em;
 	margin-bottom: 1em;
 	background-color: var(--purple);
 	border-radius: 1em;
+	transition: 0.3s ease, box-shadow 0.3s ease;
 }
 
 .name-card > p {
@@ -37,7 +38,7 @@
 	box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
 		rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
 		rgba(0, 0, 0, 0.09) 0px 32px 16px;
-	scale: 1.1;
+	 transform: scale(1.05);
 }
 
 .action-btn {
